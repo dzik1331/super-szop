@@ -26,4 +26,9 @@ export class ArticleComponent implements OnInit {
     return true;
   }
 
+  goToUrl(): boolean {
+    window.open(this.article.link, '_blank');
+    return false;
+  }
+
 }

@@ -1,16 +1,21 @@
 <div class="container">
-  <form class="form">
+  <form class="form" [formGroup]="form">
     <h3>Dodaj Link</h3>
     <div class="form-group">
       <label>Tytuł</label>
-      <input class="form-control" name="title" #newTitle>
+      <input [class.error-border]="(form.get('title').touched || form.get('title').dirty) && !form.get('title').valid"
+             class="form-control"
+             name="title" formControlName="title" #newTitle>
     </div>
     <div class="form-group">
       <label>Link</label>
-      <input class="form-control" name="link" #newLink>
+      <input [class.error-border]="(form.get('link').touched || form.get('link').dirty) && !form.get('link').valid"
+             class="form-control" name="link" formControlName="link" #newLink>
     </div>
     <div class="form-group text-right">
-      <button class="btn btn-success" (click)="addArticle(newTitle, newLink)">Dodaj</button>
+      <button [disabled]="!form.valid" class="btn btn-success" (click)="addArticle()">
+        Dodaj
+      </button>
     </div>
   </form>
   <div class="article-list">

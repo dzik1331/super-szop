@@ -1,27 +1,36 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Article} from './article/Article';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UrlValidator} from './validators/url.validator';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   articles: Article[];
+  form: FormGroup;
 
-  constructor() {
+  constructor(private fb: FormBuilder) {
     this.articles = [
-      new Article('Test 1', 'http://test1.pl'),
-      new Article('Test 2', 'http://test2.pl'),
-      new Article('Test 3', 'http://test3.pl'),
+      new Article('Google', 'http://google.pl'),
+      new Article('YouTube', 'http://youtube.pl'),
+      new Article('Gmail', 'http://gmail.com'),
     ];
   }
 
-  addArticle(title: HTMLInputElement, link: HTMLInputElement) {
-    this.articles.push(new Article(title.value, link.value));
-    title.value = '';
-    link.value = '';
+  ngOnInit() {
+    this.form = this.fb.group({
+      title: [null, [Validators.required, Validators.minLength(1)]],
+      link: [null, [Validators.required, UrlValidator.url]]
+    });
+  }
+
+  addArticle() {
+    this.articles.push(new Article(this.form.get('title').value, this.form.get('link').value));
+    this.form.reset();
     return false;
   }
 

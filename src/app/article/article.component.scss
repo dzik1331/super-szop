@@ -30,6 +30,10 @@ $borderRadius: 10px;
   }
   .row:first-child {
     span:first-child {
+      &:hover {
+        text-decoration: underline;
+      }
+      cursor: pointer;
       font-weight: bold;
       font-size: 25px;
     }

@@ -2,3 +2,12 @@
 body {
   background: aliceblue;
 }
+
+.font-ico {
+  font-family: 'FontAwesome';
+}
+
+app-product-list {
+  width: 100%;
+  overflow: auto;
+}

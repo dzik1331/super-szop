@@ -1,0 +1,23 @@
+.img-content {
+  width: 200px;
+  height: 200px;
+}
+
+.product-details-content {
+  position: absolute;
+  left: 201px;
+  height: 200px;
+  span {
+    width: 100%;
+    display: inline-block;
+  }
+  .name {
+    font-size: 20px;
+    color: black;
+  }
+
+  .description {
+    font-size: 16px;
+    color: gray;
+  }
+}

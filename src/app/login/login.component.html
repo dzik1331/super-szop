@@ -1,0 +1,13 @@
+<div class="container">
+  <form class="form" [formGroup]="form">
+    <div class="form-group">
+      <input class="form-control" formControlName="login" placeholder="&#xf007; Login">
+    </div>
+    <div class="form-group">
+      <input class="form-control" formControlName="password" placeholder="&#xf023; Hasło">
+    </div>
+    <div class="form-group text-right">
+      <button class="btn btn-success" (click)="login()">Zaloguj</button>
+    </div>
+  </form>
+</div>

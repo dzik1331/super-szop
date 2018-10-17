@@ -1,0 +1,49 @@
+$borderRadius: 10px;
+
+.main-content {
+  margin-bottom: 5px;
+  .col:first-child {
+    border-bottom-left-radius: $borderRadius;
+    border-top-left-radius: $borderRadius;
+  }
+  .col:last-child {
+    border-bottom-right-radius: $borderRadius;
+    border-top-right-radius: $borderRadius;
+  }
+}
+
+.points {
+  background: #cecece;
+  .row:first-child {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .row:last-child {
+    font-weight: bold;
+  }
+}
+
+.title {
+  background: white;
+  .row {
+    padding-left: 20px;
+  }
+  .row:first-child {
+    span:first-child {
+      font-weight: bold;
+      font-size: 25px;
+    }
+    span:last-child {
+      color: #7d7d7d;
+      font-size: 14px;
+    }
+  }
+  .row:last-child {
+    i {
+      font-size: 18px;
+      cursor: pointer;
+      color: dodgerblue;
+    }
+  }
+}
+

@@ -2,6 +2,9 @@ $borderRadius: 10px;
 
 .main-content {
   margin-bottom: 5px;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
   .col:first-child {
     border-bottom-left-radius: $borderRadius;
     border-top-left-radius: $borderRadius;

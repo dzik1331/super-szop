@@ -15,4 +15,18 @@ export class ProductService extends RestService {
       url: 'product/list'
     });
   }
+
+  tags(): Observable<any[]> {
+    return this.request({
+      url: 'product/tags'
+    });
+  }
+
+  add(data): Observable<any[]> {
+    return this.request({
+      url: 'product/add',
+      method: Method.POST,
+      data: data
+    });
+  }
 }

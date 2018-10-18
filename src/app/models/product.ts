@@ -2,7 +2,7 @@ export class Product {
   id: number;
   name: string;
   price: number;
-  imgSmall: string;
+  img: string;
   tags: string[];
   description: string;
 
@@ -10,7 +10,7 @@ export class Product {
     this.id = id;
     this.name = name;
     this.price = price;
-    this.imgSmall = imgSmall;
+    this.img = imgSmall;
     this.description = description || '';
     this.tags = tags || [];
   }

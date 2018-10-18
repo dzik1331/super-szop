@@ -1,0 +1,45 @@
+<div class="w-100 h-100 main-content">
+  <h4 class="pl-5 pt-5">Nowy produkt</h4>
+  <form *ngIf="loaded" [formGroup]="form">
+    <div class="form-group row">
+      <label class="col-form-label col-2">Nazwa</label>
+      <div class="col col-10">
+        <input class="form-control" formControlName="name">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-form-label col-2">Opis</label>
+      <div class="col col-10">
+        <textarea class="form-control" formControlName="description"></textarea>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-form-label col-2">Tagi</label>
+      <div class="col col-10">
+        <ng-select [multiple]="true" [items]="tags" [(ngModel)]="selectTags" formControlName="tags"
+                   bindLabel="value" bindValue="value"></ng-select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-form-label col-2">Zdjęcie</label>
+      <div class="col col-10">
+        <input class="form-control" formControlName="img">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-form-label col-2">Cena</label>
+      <div class="col col-10">
+        <input class="form-control" type="number" formControlName="price">
+      </div>
+    </div>
+
+    <div class="form-group text-right">
+      <button class="btn btn-success" (click)="add()">Dodaj</button>
+    </div>
+  </form>
+
+</div>

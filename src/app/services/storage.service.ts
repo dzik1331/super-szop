@@ -7,7 +7,7 @@ export class StorageService {
   }
 
   add(key: string, value: any): void {
-    sessionStorage.setItem(key, value);
+    sessionStorage.setItem(key, JSON.stringify(value));
   }
 
   get(key: string): any {

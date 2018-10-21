@@ -4,6 +4,7 @@ import {LoginComponent} from './login/login.component';
 import {ShopComponent} from './shop/shop.component';
 import {ProductListComponent} from './shop/product-list/product-list.component';
 import {AddProductComponent} from './shop/add-product/add-product.component';
+import {LoggedInGuardService} from './services/logged-in-guard.service';
 
 export const routes: Routes = [
   {
@@ -18,6 +19,7 @@ export const routes: Routes = [
   {
     path: 'shop',
     component: ShopComponent,
+    canActivate: [LoggedInGuardService],
     children: [
       {
         path: '',

@@ -1,0 +1,39 @@
+.login {
+  font-weight: bold;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.logout {
+  font-size: 25px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.col-logout {
+  padding-right: 50px;
+}
+
+.fa-shopping-basket {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.number {
+  font-size: 13px;
+  color: red;
+  border: 1px solid red;
+  border-radius: 50%;
+  font-weight: bolder;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  padding: 3px;
+  min-width: 21px;
+  min-height: 21px;
+  top: -7px;
+  right: 8px;
+  background: white;
+}

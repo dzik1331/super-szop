@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
       login: this.form.get('login').value,
       password: this.form.get('password').value
     }).subscribe((dataResult: { result: User }) => {
-        console.debug('Result logowania', dataResult);
         if (dataResult) {
           this.storageService.add('currentUser', dataResult.result);
           this.router.navigate(['../shop']);

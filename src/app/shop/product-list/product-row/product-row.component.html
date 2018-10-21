@@ -3,6 +3,6 @@
     <app-product [product]="product"></app-product>
   </div>
   <div class="col col-4 text-center align-self-center">
-    <button class="btn btn-info">Do koszyka</button>
+    <button (click)="addToBasket(product)" class="btn btn-info">Do koszyka</button>
   </div>
 </div>

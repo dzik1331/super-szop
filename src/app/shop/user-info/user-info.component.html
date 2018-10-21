@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col">
+    <div class="login">{{user.login}}</div>
+  </div>
+  <div class="col col-1 d-flex col-logout">
+    <i (click)="logout()" class="fa fa-sign-out logout" aria-hidden="true"></i>
+  </div>
+  <div class="col col-1 d-flex col-logout">
+    <i class="fa fa-shopping-basket" aria-hidden="true">
+      <i class="number" aria-hidden="true">{{productsCount}}</i>
+    </i>
+  </div>
+</div>

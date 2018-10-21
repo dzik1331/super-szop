@@ -41,7 +41,6 @@ export abstract class RestService {
   }
 
   private url(location: string, noPrefix: boolean): string {
-    console.debug(`${noPrefix ? 'http://' + environment.serverApiUrl + location : 'http://' + environment.serverApiUrl + 'api/' + location}`)
     return noPrefix ? 'http://' + environment.serverApiUrl + location : 'http://' + environment.serverApiUrl + 'api/' + location;
   }
 
@@ -75,7 +74,6 @@ export abstract class RestService {
 
 
   protected request<T>(resource: Resource): Observable<T> {
-    console.debug(resource)
     switch (resource.method || Method.GET) {
       case Method.POST:
         return this._post(resource);

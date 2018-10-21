@@ -14,6 +14,9 @@ import {ProductRowComponent} from './shop/product-list/product-row/product-row.c
 import {ProductComponent} from './shop/product-list/product/product.component';
 import {AddProductComponent} from './shop/add-product/add-product.component';
 import {NgSelectModule} from '@ng-select/ng-select';
+import {UserInfoComponent} from './shop/user-info/user-info.component';
+import {LoggedInGuardService} from './services/logged-in-guard.service';
+import {BasketService} from './services/basket.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import {NgSelectModule} from '@ng-select/ng-select';
     ShopComponent,
     ProductRowComponent,
     ProductComponent,
-    AddProductComponent
+    AddProductComponent,
+    UserInfoComponent
   ],
   imports: [
     AppRouting,
@@ -36,7 +40,10 @@ import {NgSelectModule} from '@ng-select/ng-select';
   providers: [
     UserService,
     StorageService,
-    ProductService],
+    ProductService,
+    LoggedInGuardService,
+    BasketService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

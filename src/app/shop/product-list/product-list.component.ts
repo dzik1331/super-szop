@@ -18,7 +18,6 @@ export class ProductListComponent implements OnInit {
     this.productRestService.query().subscribe((products: Product[]) => {
       if (products) {
         this.products = products;
-        console.debug(this.products);
       }
     });
   }

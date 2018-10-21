@@ -14,6 +14,7 @@
             "kebab-case"
         ],
       "no-console": false,
-      "max-line-length": false
+      "max-line-length": false,
+      "no-inferrable-types": false
     }
 }

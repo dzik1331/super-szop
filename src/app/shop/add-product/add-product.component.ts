@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../../services/product.service';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
@@ -15,7 +16,8 @@ export class AddProductComponent implements OnInit {
   loaded: boolean = false;
 
   constructor(private productRestService: ProductService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -23,13 +25,12 @@ export class AddProductComponent implements OnInit {
         this.tags = tags.map((tag) => {
           return {value: tag};
         });
-        console.debug(this.tags);
         this.form = this.fb.group({
-          name: [],
+          name: [null, [Validators.required]],
           description: [],
-          img: [],
+          img: [null, [Validators.required]],
           tags: [],
-          price: []
+          price: [null, [Validators.required, Validators.min(0)]]
         });
         this.loaded = true;
       },
@@ -39,10 +40,11 @@ export class AddProductComponent implements OnInit {
   }
 
   add() {
-    console.debug(this.selectTags);
-    console.debug(this.form);
-
-    this.productRestService.add(this.form.value).subscribe();
+    if (this.form.valid) {
+      this.productRestService.add(this.form.value).subscribe(() => {
+        this.router.navigate(['../shop']);
+      });
+    }
   }
 
 }

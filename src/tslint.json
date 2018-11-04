@@ -15,6 +15,7 @@
         ],
       "no-console": false,
       "max-line-length": false,
-      "no-inferrable-types": false
+      "no-inferrable-types": false,
+      "triple-equals": false
     }
 }

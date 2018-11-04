@@ -3,11 +3,11 @@
     <div class="login">{{user.login}}</div>
   </div>
   <div class="col col-1 d-flex col-logout">
-    <i (click)="logout()" class="fa fa-sign-out logout" aria-hidden="true"></i>
+    <i (click)="logout()" class="fa fa-sign-out logout"></i>
   </div>
   <div class="col col-1 d-flex col-logout">
-    <i class="fa fa-shopping-basket" aria-hidden="true">
-      <i class="number" aria-hidden="true">{{productsCount}}</i>
+    <i class="fa fa-shopping-basket" (click)="showBasket()">
+      <i class="number">{{productsCount}}</i>
     </i>
   </div>
 </div>

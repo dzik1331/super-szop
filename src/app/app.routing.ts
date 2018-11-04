@@ -5,6 +5,7 @@ import {ShopComponent} from './shop/shop.component';
 import {ProductListComponent} from './shop/product-list/product-list.component';
 import {AddProductComponent} from './shop/add-product/add-product.component';
 import {LoggedInGuardService} from './services/logged-in-guard.service';
+import {BasketComponent} from './shop/basket/basket.component';
 
 export const routes: Routes = [
   {
@@ -28,6 +29,10 @@ export const routes: Routes = [
       {
         path: 'add',
         component: AddProductComponent,
+      },
+      {
+        path: 'basket',
+        component: BasketComponent,
       }
     ]
   },

@@ -17,6 +17,7 @@ import {NgSelectModule} from '@ng-select/ng-select';
 import {UserInfoComponent} from './shop/user-info/user-info.component';
 import {LoggedInGuardService} from './services/logged-in-guard.service';
 import {BasketService} from './services/basket.service';
+import { BasketComponent } from './shop/basket/basket.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {BasketService} from './services/basket.service';
     ProductRowComponent,
     ProductComponent,
     AddProductComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    BasketComponent
   ],
   imports: [
     AppRouting,

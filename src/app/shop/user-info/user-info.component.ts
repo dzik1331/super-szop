@@ -34,4 +34,8 @@ export class UserInfoComponent implements OnInit {
     return this.basketService.productsCount;
   }
 
+  showBasket() {
+    this.router.navigate(['../shop', 'basket']);
+  }
+
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Product} from '../../models/product';
 import {ProductService} from '../../services/product.service';
 
@@ -8,18 +8,25 @@ import {ProductService} from '../../services/product.service';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
-
-  products: Product[];
+  @Input() products: Product[] = [];
+  @Input() isBasket: boolean = false;
 
   constructor(private productRestService: ProductService) {
   }
 
   ngOnInit() {
-    this.productRestService.query().subscribe((products: Product[]) => {
-      if (products) {
-        this.products = products;
-      }
-    });
+    if (!this.isBasket) {
+      this.productRestService.query().subscribe((products: Product[]) => {
+        if (products) {
+          this.products = products;
+        }
+      });
+
+    }
+  }
+
+  reloadList(products: Product[]) {
+    this.products = products;
   }
 
 }

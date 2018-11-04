@@ -1,0 +1,27 @@
+.basket-label {
+  position: absolute;
+  top: 0;
+  font-weight: bold;
+  padding: 16px;
+  font-size: 25px;
+  width: 100%;
+  background: beige;
+}
+
+.basket-container {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+}
+
+  app-product-list {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+  }
+

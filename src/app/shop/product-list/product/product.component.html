@@ -4,7 +4,7 @@
   </div>
   <div class="product-details-content">
     <span class="name">{{product.name}}</span>
-    <span class="description">{{product.description}}</span>
+    <span class="description" [ngClass]="{'description-show': product.description || product.description != ''}">{{product.description}}</span>
     <span class="price">{{product.price}} zł</span>
   </div>
 </div>

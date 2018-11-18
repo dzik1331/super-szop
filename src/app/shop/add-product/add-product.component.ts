@@ -30,7 +30,8 @@ export class AddProductComponent implements OnInit {
           description: [],
           img: [null, [Validators.required]],
           tags: [],
-          price: [null, [Validators.required, Validators.min(0)]]
+          price: [null, [Validators.required, Validators.min(0)]],
+          producer: []
         });
         this.loaded = true;
       },

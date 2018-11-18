@@ -1,0 +1,33 @@
+<div class="container">
+  <form class="form" [formGroup]="form">
+    <label class="page-title">Rejestracja użytkownika</label>
+    <div class="form-group">
+      <label>Login</label>
+      <input class="form-control" formControlName="login">
+    </div>
+    <div class="form-group">
+      <label>Imię</label>
+      <input class="form-control" formControlName="name">
+    </div>
+    <div class="form-group">
+      <label>Nazwisko</label>
+      <input class="form-control" formControlName="lastName">
+    </div>
+    <div class="form-group">
+      <label>Hasło</label>
+      <input class="form-control" formControlName="password">
+    </div>
+    <div class="form-group">
+      <label>Powtórz hasło</label>
+      <input class="form-control" formControlName="confirmPassword">
+    </div>
+    <div class="form-group">
+      <label>Rola użytkownika</label>
+      <ng-select [items]="roles" formControlName="role"
+                 bindLabel="name" bindValue="id"></ng-select>
+    </div>
+    <div class="form-group text-right">
+      <button class="btn btn-success" (click)="addUser()">Dodaj</button>
+    </div>
+  </form>
+</div>

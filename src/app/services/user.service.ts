@@ -17,4 +17,18 @@ export class UserService extends RestService {
       method: Method.POST
     });
   }
+
+  roles(): Observable<any> {
+    return this.request({
+      url: 'user/roles'
+    });
+  }
+
+  addUser(data): Observable<any> {
+    return this.request({
+      url: 'user/add',
+      data: data,
+      method: Method.POST
+    });
+  }
 }

@@ -1,0 +1,28 @@
+.message-container {
+  min-height: 200px;
+}
+
+.title-content {
+  background: #da2828;
+  height: 40px;
+  color: white;
+  .title-text {
+    height: 100%;
+    align-items: center;
+    display: flex;
+    padding-left: 10px;
+  }
+}
+
+.message {
+  padding: 10px;
+}
+
+.close {
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 5px;
+  right: 0;
+  padding: 0 10px 0 0;
+}

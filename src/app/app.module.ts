@@ -17,7 +17,11 @@ import {NgSelectModule} from '@ng-select/ng-select';
 import {UserInfoComponent} from './shop/user-info/user-info.component';
 import {LoggedInGuardService} from './services/logged-in-guard.service';
 import {BasketService} from './services/basket.service';
-import { BasketComponent } from './shop/basket/basket.component';
+import {BasketComponent} from './shop/basket/basket.component';
+import {RegistrationComponent} from './registration/registration.component';
+import {ModalService} from './modals/modal.service';
+import {ModalModule} from 'ngx-bootstrap';
+import {MessageModalComponent} from './modals/message-modal/message-modal.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,9 @@ import { BasketComponent } from './shop/basket/basket.component';
     ProductComponent,
     AddProductComponent,
     UserInfoComponent,
-    BasketComponent
+    BasketComponent,
+    RegistrationComponent,
+    MessageModalComponent
   ],
   imports: [
     AppRouting,
@@ -37,15 +43,18 @@ import { BasketComponent } from './shop/basket/basket.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgSelectModule
+    NgSelectModule,
+    ModalModule.forRoot()
   ],
   providers: [
     UserService,
     StorageService,
     ProductService,
     LoggedInGuardService,
-    BasketService
+    BasketService,
+    ModalService
   ],
+  entryComponents: [MessageModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

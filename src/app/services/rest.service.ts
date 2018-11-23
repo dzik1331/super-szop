@@ -1,4 +1,4 @@
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 
@@ -25,19 +25,19 @@ export abstract class RestService {
   }
 
   private _get<T>(resource: Resource): Observable<T> {
-    return this.http.get<T>(this.url(resource.url, resource.noPrefix));
+    return this.http.get<T>(this.url(resource.url, resource.noPrefix), this.options(resource));
   }
 
   private _post<T>(resource: Resource): Observable<T> {
-    return this.http.post<T>(this.url(resource.url, resource.noPrefix), this.data(resource));
+    return this.http.post<T>(this.url(resource.url, resource.noPrefix), this.data(resource), this.options(resource));
   }
 
   private _put<T>(resource: Resource): Observable<T> {
-    return this.http.put<T>(this.url(resource.url, resource.noPrefix), this.data(resource));
+    return this.http.put<T>(this.url(resource.url, resource.noPrefix), this.data(resource), this.options(resource));
   }
 
   private _delete<T>(resource: Resource): Observable<T> {
-    return this.http.delete<T>(this.url(resource.url, resource.noPrefix));
+    return this.http.delete<T>(this.url(resource.url, resource.noPrefix), this.options(resource));
   }
 
   private url(location: string, noPrefix: boolean): string {
@@ -70,6 +70,42 @@ export abstract class RestService {
       return this.form(resource.form);
     }
     return resource.encode ? this.encode(resource.data) : resource.data;
+  }
+
+  private headers(data: object): HttpHeaders {
+    let headers = new HttpHeaders();
+    if (data) {
+      Object.keys(data)
+        .forEach((key) => headers = headers.set(key, data[key]));
+    }
+    return headers;
+  }
+
+  private params(data: object): HttpParams {
+    let params = new HttpParams();
+
+    if (data) {
+      Object.keys(data)
+        .forEach((key) => params = params.set(key, data[key]));
+    }
+
+    return params;
+  }
+
+  private options(resource: Resource): object {
+    const options = {};
+
+    if (resource.headers) {
+      options['headers'] = this.headers(resource.headers);
+    }
+    if (resource.params) {
+      options['params'] = this.params(resource.params);
+    }
+    if (resource.responseType) {
+      options['responseType'] = resource.responseType;
+    }
+
+    return options;
   }
 
 

@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Product} from '../../../models/product';
 import {BasketService} from '../../../services/basket.service';
+import {RoleService} from '../../../services/role.service';
 
 @Component({
   selector: 'app-product-row',
@@ -12,11 +13,11 @@ export class ProductRowComponent implements OnInit {
   @Input() isBasket: boolean = false;
   @Output() currentBasket = new EventEmitter();
 
-  constructor(private basketService: BasketService) {
+  constructor(private basketService: BasketService,
+              public roleService: RoleService) {
   }
 
   ngOnInit() {
-    console.debug('Add',);
     this.basketService.test += 10;
   }
 

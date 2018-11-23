@@ -5,6 +5,7 @@ import {StorageService} from '../services/storage.service';
 import {User} from '../models/user';
 import {Router} from '@angular/router';
 import {ModalService} from '../modals/modal.service';
+import {RoleService} from '../services/role.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
               private userRestService: UserService,
               private storageService: StorageService,
               private router: Router,
-              private modal: ModalService) {
+              private modal: ModalService,
+              private roleService: RoleService) {
   }
 
   ngOnInit() {
@@ -34,6 +36,7 @@ export class LoginComponent implements OnInit {
       password: this.form.get('password').value
     }).subscribe((dataResult: User) => {
         if (dataResult) {
+          this.roleService.setRole(dataResult.role)
           this.storageService.add('currentUser', dataResult);
           this.router.navigate(['../shop']);
         }

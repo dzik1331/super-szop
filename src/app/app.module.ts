@@ -22,6 +22,7 @@ import {RegistrationComponent} from './registration/registration.component';
 import {ModalService} from './modals/modal.service';
 import {ModalModule} from 'ngx-bootstrap';
 import {MessageModalComponent} from './modals/message-modal/message-modal.component';
+import {ValidationInfoDirective} from './directives/validation-info.directive';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {MessageModalComponent} from './modals/message-modal/message-modal.compon
     UserInfoComponent,
     BasketComponent,
     RegistrationComponent,
-    MessageModalComponent
+    MessageModalComponent,
+    ValidationInfoDirective
   ],
   imports: [
     AppRouting,
@@ -51,7 +53,6 @@ import {MessageModalComponent} from './modals/message-modal/message-modal.compon
     StorageService,
     ProductService,
     LoggedInGuardService,
-    BasketService,
     ModalService
   ],
   entryComponents: [MessageModalComponent],

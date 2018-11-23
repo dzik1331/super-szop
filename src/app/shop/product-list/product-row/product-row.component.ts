@@ -16,6 +16,8 @@ export class ProductRowComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.debug('Add',);
+    this.basketService.test += 10;
   }
 
   addToBasket(product: Product) {

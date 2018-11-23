@@ -22,3 +22,17 @@ app-basket {
 app-basket {
   background: white;
 }
+
+.input-wrapper {
+  div {
+    border: 2px solid red;
+
+    span {
+      background: red;
+      color: white;
+      float: right;
+      font-size: 12px;
+      padding: 0 5px 2px 5px;
+    }
+  }
+}

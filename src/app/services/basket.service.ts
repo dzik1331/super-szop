@@ -2,8 +2,12 @@ import {Injectable} from '@angular/core';
 import {StorageService} from './storage.service';
 import {Product} from '../models/product';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BasketService {
+
+  test = 10;
 
   constructor(private storageService: StorageService) {
   }

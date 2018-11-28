@@ -2,17 +2,19 @@ import {Injectable} from '@angular/core';
 import {Method, RestService} from './rest.service';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {StorageService} from './storage.service';
 
 @Injectable()
 export class ProductService extends RestService {
 
-  constructor(protected http: HttpClient) {
+  constructor(protected http: HttpClient,
+              private storageService: StorageService) {
     super(http);
   }
 
-  query(): Observable<any[]> {
+  query(userId = null): Observable<any[]> {
     return this.request({
-      url: 'product/list'
+      url: 'product/list' + (userId == null ? '' : '/' + userId)
     });
   }
 
@@ -23,6 +25,7 @@ export class ProductService extends RestService {
   }
 
   add(data): Observable<any[]> {
+    data['userId'] = this.storageService.currentUserId();
     return this.request({
       url: 'product/add',
       method: Method.POST,

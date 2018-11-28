@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {User} from '../models/user';
 
 @Injectable()
 export class StorageService {
@@ -25,5 +26,11 @@ export class StorageService {
 
   contains(key: string): boolean {
     return !!sessionStorage.getItem(key);
+  }
+
+  currentUserId() {
+    let data: any = sessionStorage.getItem('currentUser');
+    data = data ? JSON.parse(data) : null;
+    return data ? data.id : null;
   }
 }

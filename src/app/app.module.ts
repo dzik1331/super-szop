@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {LoginComponent} from './login/login.component';
 import {AppRouting} from './app.routing';
 import {UserService} from './services/user.service';
@@ -22,6 +22,9 @@ import {RegistrationComponent} from './registration/registration.component';
 import {ModalService} from './modals/modal.service';
 import {ModalModule} from 'ngx-bootstrap';
 import {MessageModalComponent} from './modals/message-modal/message-modal.component';
+import {ValidationInfoDirective} from './directives/validation-info.directive';
+import {RoleService} from './services/role.service';
+import {InterceptorService} from './services/interceptor';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import {MessageModalComponent} from './modals/message-modal/message-modal.compon
     UserInfoComponent,
     BasketComponent,
     RegistrationComponent,
-    MessageModalComponent
+    MessageModalComponent,
+    ValidationInfoDirective
   ],
   imports: [
     AppRouting,
@@ -51,8 +55,13 @@ import {MessageModalComponent} from './modals/message-modal/message-modal.compon
     StorageService,
     ProductService,
     LoggedInGuardService,
-    BasketService,
-    ModalService
+    ModalService,
+    RoleService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
   ],
   entryComponents: [MessageModalComponent],
   bootstrap: [AppComponent]

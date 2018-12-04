@@ -18,7 +18,7 @@
     <div class="form-group row">
       <label class="col-form-label col-2">Tagi</label>
       <div class="col col-10">
-        <ng-select [multiple]="true" [items]="tags" [(ngModel)]="selectTags" formControlName="tags"
+        <ng-select [multiple]="true" [items]="tags" formControlName="tags"
                    bindLabel="value" bindValue="value"></ng-select>
       </div>
     </div>
@@ -26,7 +26,14 @@
     <div class="form-group row">
       <label class="col-form-label col-2">Zdjęcie</label>
       <div class="col col-10">
-        <input class="form-control" formControlName="img">
+        <!--<input class="form-control" formControlName="img">-->
+        <label class="upload-button">
+          <input (change)="onFileChange($event)" type="file" multiple>
+        </label>
+
+        <!--<button type="button" class="start-upload-btn" (click)="startUpload()">-->
+          <!--Start Upload-->
+        <!--</button>-->
       </div>
     </div>
 
@@ -45,7 +52,7 @@
     </div>
 
     <div class="form-group text-right">
-      <button [disabled]="!form.valid" class="btn btn-success" (click)="add()">Dodaj</button>
+      <button [disabled]="!form.valid || !imageLoaded" class="btn btn-success" (click)="add()">Dodaj</button>
     </div>
   </form>
 

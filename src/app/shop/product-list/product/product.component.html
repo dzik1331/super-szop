@@ -1,6 +1,6 @@
 <div class="row">
   <div class="img-content">
-    <img width="200" height="200" [src]="product.img">
+    <img (click)="nextImage()" width="200" height="200" [src]="urlImages + product.img[imgIndex]">
   </div>
   <div class="product-details-content">
     <span class="name">{{product.name}}</span>

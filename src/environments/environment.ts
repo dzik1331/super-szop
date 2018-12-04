@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  serverApiUrl: 'localhost:8443/'
+  serverApiUrl: 'localhost:8443/',
+  urlToImages: 'http://localhost:8443/images/'
 };
 
 /*

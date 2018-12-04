@@ -16,7 +16,6 @@ import {AddProductComponent} from './shop/add-product/add-product.component';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {UserInfoComponent} from './shop/user-info/user-info.component';
 import {LoggedInGuardService} from './services/logged-in-guard.service';
-import {BasketService} from './services/basket.service';
 import {BasketComponent} from './shop/basket/basket.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {ModalService} from './modals/modal.service';
@@ -25,6 +24,7 @@ import {MessageModalComponent} from './modals/message-modal/message-modal.compon
 import {ValidationInfoDirective} from './directives/validation-info.directive';
 import {RoleService} from './services/role.service';
 import {InterceptorService} from './services/interceptor';
+import {NgxUploaderModule} from 'ngx-uploader';
 
 @NgModule({
   declarations: [
@@ -48,7 +48,8 @@ import {InterceptorService} from './services/interceptor';
     ReactiveFormsModule,
     HttpClientModule,
     NgSelectModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgxUploaderModule
   ],
   providers: [
     UserService,

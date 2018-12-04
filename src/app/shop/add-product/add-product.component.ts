@@ -11,9 +11,10 @@ import {Router} from '@angular/router';
 export class AddProductComponent implements OnInit {
 
   tags: any[] = [];
-  selectTags: any[] = [];
   form: FormGroup;
   loaded: boolean = false;
+  files: any[] = [];
+  imageLoaded = false;
 
   constructor(private productRestService: ProductService,
               private fb: FormBuilder,
@@ -21,14 +22,13 @@ export class AddProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productRestService.tags().subscribe((tags) => {
+    this.productRestService.tags().subscribe((tags: any[]) => {
         this.tags = tags.map((tag) => {
           return {value: tag};
         });
         this.form = this.fb.group({
           name: [null, [Validators.required]],
           description: [],
-          img: [null, [Validators.required]],
           tags: [],
           price: [null, [Validators.required, Validators.min(0)]],
           producer: []
@@ -42,10 +42,40 @@ export class AddProductComponent implements OnInit {
 
   add() {
     if (this.form.valid) {
+      const data = this.form.value;
+      data['img'] = this.files;
+      console.debug('Data', data);
       this.productRestService.add(this.form.value).subscribe(() => {
         this.router.navigate(['../shop']);
       });
     }
+  }
+
+  onFileChange(event) {
+    this.files = [];
+    this.imageLoaded = false;
+    const files = event.target.files;
+    let count = 0;
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+
+      const picReader = new FileReader();
+      picReader.addEventListener('load', (e) => {
+        console.debug('e', e);
+      });
+      picReader.addEventListener('loadend', (e: any) => {
+        console.debug('koniec', file);
+        const d = {};
+        d['result'] = e.target.result.toString().split(',')[1];
+        d['name'] = file.name;
+        this.files.push(d);
+        count += 1;
+        this.imageLoaded = count >= files.length;
+        console.debug('Files', this.files);
+      });
+      picReader.readAsDataURL(file);
+    }
+
   }
 
 }

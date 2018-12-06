@@ -18,7 +18,6 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     if (this.product) {
       this.product.img = !Array.isArray(this.product.img) ? this.product.img.split(',') : this.product.img;
-      console.debug('prdo', this.product);
     }
   }
 

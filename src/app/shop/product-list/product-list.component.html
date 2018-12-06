@@ -1,2 +1,2 @@
 <app-product-row [isBasket]="isBasket" *ngFor="let product of products" [product]="product"
-                 (currentBasket)="reloadList($event)"></app-product-row>
+                 (currentBasket)="reloadList($event)" (delete)="getProducts()"></app-product-row>

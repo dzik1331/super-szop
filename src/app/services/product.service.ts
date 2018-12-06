@@ -32,4 +32,12 @@ export class ProductService extends RestService {
       data: data
     });
   }
+
+  delete(productId): Observable<any[]> {
+    const userId = this.storageService.currentUserId();
+    return this.request({
+      url: `product/remove/${productId}/${userId}`,
+      method: Method.DELETE
+    });
+  }
 }

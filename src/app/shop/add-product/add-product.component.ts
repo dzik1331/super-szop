@@ -44,7 +44,6 @@ export class AddProductComponent implements OnInit {
     if (this.form.valid) {
       const data = this.form.value;
       data['img'] = this.files;
-      console.debug('Data', data);
       this.productRestService.add(this.form.value).subscribe(() => {
         this.router.navigate(['../shop']);
       });
@@ -60,18 +59,13 @@ export class AddProductComponent implements OnInit {
       const file = files[i];
 
       const picReader = new FileReader();
-      picReader.addEventListener('load', (e) => {
-        console.debug('e', e);
-      });
       picReader.addEventListener('loadend', (e: any) => {
-        console.debug('koniec', file);
         const d = {};
         d['result'] = e.target.result.toString().split(',')[1];
         d['name'] = file.name;
         this.files.push(d);
         count += 1;
         this.imageLoaded = count >= files.length;
-        console.debug('Files', this.files);
       });
       picReader.readAsDataURL(file);
     }

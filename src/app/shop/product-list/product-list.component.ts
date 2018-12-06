@@ -20,17 +20,20 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     if (!this.isBasket) {
-      this.productRestService.query(this.roleService.isSeller ? this.storageService.currentUserId() : null).subscribe((products: Product[]) => {
-        if (products) {
-          this.products = products;
-        }
-      });
-
+      this.getProducts();
     }
   }
 
   reloadList(products: Product[]) {
     this.products = products;
+  }
+
+  public getProducts() {
+    this.productRestService.query(this.roleService.isSeller ? this.storageService.currentUserId() : null).subscribe((products: Product[]) => {
+      if (products) {
+        this.products = products;
+      }
+    });
   }
 
 }

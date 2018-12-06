@@ -8,6 +8,6 @@
   </div>
   <div *ngIf="roleService.isSeller" class="col col-4 text-center align-self-center">
     <button class="btn btn-secondary">Edytuj</button>
-    <button class="btn btn-danger ml-3">Usuń</button>
+    <button class="btn btn-danger ml-3" (click)="deleteProduct(product)">Usuń</button>
   </div>
 </div>

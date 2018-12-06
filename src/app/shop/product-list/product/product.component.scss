@@ -29,3 +29,17 @@
     overflow: auto;
   }
 }
+
+.thumbs-content {
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  visibility: hidden;
+}
+
+.img-content:hover {
+  .thumbs-content {
+    visibility: visible;
+    opacity: 0.7;
+  }
+}

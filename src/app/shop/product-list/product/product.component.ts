@@ -17,15 +17,13 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     if (this.product) {
-      this.product.img = this.product.img.split(',');
+      this.product.img = !Array.isArray(this.product.img) ? this.product.img.split(',') : this.product.img;
       console.debug('prdo', this.product);
     }
   }
 
-  public nextImage() {
-    if (this.product) {
-      this.imgIndex = this.imgIndex == this.product.img.length - 1 ? 0 : this.imgIndex + 1;
-    }
+  public setImage(index) {
+    this.imgIndex = index;
   }
 
 }

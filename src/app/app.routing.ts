@@ -36,6 +36,10 @@ export const routes: Routes = [
         component: AddProductComponent,
       },
       {
+        path: 'edit/:productId',
+        component: AddProductComponent,
+      },
+      {
         path: 'basket',
         component: BasketComponent,
       }

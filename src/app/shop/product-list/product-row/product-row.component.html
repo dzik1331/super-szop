@@ -7,7 +7,7 @@
     <button *ngIf="isBasket" (click)="removeFromBasket(product)" class="btn btn-info">Usuń z koszyka</button>
   </div>
   <div *ngIf="roleService.isSeller" class="col col-4 text-center align-self-center">
-    <button class="btn btn-secondary">Edytuj</button>
+    <button class="btn btn-secondary" [routerLink]="['edit', product.id]">Edytuj</button>
     <button class="btn btn-danger ml-3" (click)="deleteProduct(product)">Usuń</button>
   </div>
 </div>

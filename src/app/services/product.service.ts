@@ -3,6 +3,7 @@ import {Method, RestService} from './rest.service';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {StorageService} from './storage.service';
+import {Product} from '../models/product';
 
 @Injectable()
 export class ProductService extends RestService {
@@ -24,12 +25,19 @@ export class ProductService extends RestService {
     });
   }
 
-  add(data): Observable<any[]> {
+  add(data, productId = null): Observable<any[]> {
     data['userId'] = this.storageService.currentUserId();
     return this.request({
-      url: 'product/add',
-      method: Method.POST,
+      url: productId == null ? 'product/add' : `product/edit/${productId}`,
+      method: productId == null ? Method.POST : Method.PUT,
       data: data
+    });
+  }
+
+  get(productId): Observable<any> {
+    const userId = this.storageService.currentUserId();
+    return this.request({
+      url: 'product/get' + '/' + userId + '/' + productId
     });
   }
 

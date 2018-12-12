@@ -1,5 +1,5 @@
 <div class="w-100 h-100 main-content">
-  <h4 class="pl-5 pt-5">Nowy produkt</h4>
+  <h4 class="pl-5 pt-5">{{isEdit ? 'Edytuj produkt' : 'Nowy produkt'}}</h4>
   <form *ngIf="loaded" [formGroup]="form">
     <div class="form-group row">
       <label class="col-form-label col-2">Nazwa</label>
@@ -25,15 +25,11 @@
 
     <div class="form-group row">
       <label class="col-form-label col-2">Zdjęcie</label>
-      <div class="col col-10">
-        <!--<input class="form-control" formControlName="img">-->
+      <div class="col col-10" [ngClass]="{'no-active': isEdit}">
         <label class="upload-button">
           <input (change)="onFileChange($event)" type="file" multiple>
         </label>
 
-        <!--<button type="button" class="start-upload-btn" (click)="startUpload()">-->
-          <!--Start Upload-->
-        <!--</button>-->
       </div>
     </div>
 
@@ -52,7 +48,8 @@
     </div>
 
     <div class="form-group text-right">
-      <button [disabled]="!form.valid || !imageLoaded" class="btn btn-success" (click)="add()">Dodaj</button>
+      <button [disabled]="!form.valid || (!imageLoaded && !isEdit)" class="btn btn-success"
+              (click)="add()">{{isEdit ? 'Edytuj' : 'Dodaj'}}</button>
     </div>
   </form>
 

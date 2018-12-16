@@ -1,0 +1,27 @@
+.seller-name {
+  padding: 6px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #ca0f0f;
+  color: white;
+  text-shadow: 1px 6px 3px black;
+  border-top: 1px solid white;
+}
+
+.total-price {
+  padding: 6px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #ca0f0f;
+  color: white;
+  text-shadow: 1px 6px 3px black;
+  justify-content: flex-end;
+}
+
+.btn-pay {
+  box-shadow: 1px 1px 7px 1px black;
+  background: #ca0f0f;
+  border: 1px solid white;
+  font-weight: bold;
+  color: white;
+}

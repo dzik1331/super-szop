@@ -1,0 +1,10 @@
+<div class="row ml-0 mr-0 seller-name">
+  {{seller}}
+</div>
+<app-product-list [isBasket]="true" [products]="products"></app-product-list>
+<div class="row ml-0 mr-0 total-price">
+  Do zapłaty: {{total}} zł
+</div>
+<div class="row ml-0 mr-0 total-price">
+ <button class="btn btn-sm btn-pay">Zapłać</button>
+</div>

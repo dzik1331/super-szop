@@ -1,5 +1,7 @@
 <div class="basket-container">
   <label class="basket-label">Twój koszyk</label>
-  <app-product-list [isBasket]="true" [products]="productsBasket"></app-product-list>
+  <div class="seller-container">
+    <app-basket-total-price [seller]="seller" [products]="productsBasket[seller]" *ngFor="let seller of getSellers()"></app-basket-total-price>
+  </div>
 </div>
 

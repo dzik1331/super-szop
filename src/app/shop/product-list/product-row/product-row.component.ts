@@ -12,7 +12,6 @@ import {ProductService} from '../../../services/product.service';
 export class ProductRowComponent implements OnInit {
   @Input() product: Product;
   @Input() isBasket: boolean = false;
-  @Output() currentBasket = new EventEmitter();
   @Output() delete = new EventEmitter();
 
   constructor(private basketService: BasketService,
@@ -30,7 +29,7 @@ export class ProductRowComponent implements OnInit {
 
   removeFromBasket(product: Product) {
     const newList = this.basketService.removeFromBasket(product);
-    this.currentBasket.emit(newList);
+    this.basketService.deleteFromBasketMessage();
   }
 
   deleteProduct(product: Product) {

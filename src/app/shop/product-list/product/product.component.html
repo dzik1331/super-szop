@@ -2,12 +2,15 @@
   <div class="img-content">
     <img width="200" height="200" [src]="urlImages + product.img[imgIndex]">
     <div class="thumbs-content">
-      <img *ngFor="let image of product.img; let i = index;" (click)="setImage(i)" [src]="urlImages + image" width="50" height="50">
+      <img *ngFor="let image of product.img; let i = index;" (click)="setImage(i)" [src]="urlImages + image" width="50"
+           height="50">
     </div>
   </div>
   <div class="product-details-content">
     <span class="name">{{product.name}}</span>
-    <span class="description" [ngClass]="{'description-show': product.description || product.description != ''}">{{product.description}}</span>
+    <span class="description"
+          [ngClass]="{'description-show': product.description || product.description != ''}">{{product.description}}</span>
     <span class="price">{{product.price}} zł</span>
+    <span class="producer">{{product.producer}}</span>
   </div>
 </div>

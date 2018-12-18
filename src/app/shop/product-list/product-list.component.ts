@@ -24,10 +24,6 @@ export class ProductListComponent implements OnInit {
     }
   }
 
-  reloadList(products: Product[]) {
-    this.products = products;
-  }
-
   public getProducts() {
     this.productRestService.query(this.roleService.isSeller ? this.storageService.currentUserId() : null).subscribe((products: Product[]) => {
       if (products) {

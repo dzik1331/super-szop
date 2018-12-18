@@ -25,6 +25,7 @@ import {ValidationInfoDirective} from './directives/validation-info.directive';
 import {RoleService} from './services/role.service';
 import {InterceptorService} from './services/interceptor';
 import {NgxUploaderModule} from 'ngx-uploader';
+import { BasketTotalPriceComponent } from './shop/basket/basket-total-price/basket-total-price.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {NgxUploaderModule} from 'ngx-uploader';
     BasketComponent,
     RegistrationComponent,
     MessageModalComponent,
-    ValidationInfoDirective
+    ValidationInfoDirective,
+    BasketTotalPriceComponent
   ],
   imports: [
     AppRouting,

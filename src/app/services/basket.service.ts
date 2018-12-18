@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {StorageService} from './storage.service';
 import {Product} from '../models/product';
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,7 @@ import {Product} from '../models/product';
 export class BasketService {
 
   test = 10;
+  public deleteSubject = new Subject<any>();
 
   constructor(private storageService: StorageService) {
   }
@@ -24,7 +26,10 @@ export class BasketService {
   }
 
   get productsCount() {
-    return this._basket.length;
+    if (this._basket) {
+      return this._basket.length;
+    }
+    return 0;
   }
 
   removeFromBasket(product: Product) {
@@ -51,5 +56,13 @@ export class BasketService {
 
   private saveBasket() {
     this.storageService.add('basket', this._basket);
+  }
+
+  deleteFromBasketListen() {
+    return this.deleteSubject;
+  }
+
+  deleteFromBasketMessage() {
+    return this.deleteSubject.next(true);
   }
 }

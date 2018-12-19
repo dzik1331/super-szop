@@ -1,0 +1,36 @@
+.tile {
+  margin: 15px;
+  width: 150px;
+  height: 150px;
+  background: #ca0f0f;
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  i {
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-size: 30px;
+  }
+
+  span {
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    display: block;
+  }
+  &:hover {
+    i, span {
+      color: black;
+    }
+  }
+}
+
+.tiles-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}

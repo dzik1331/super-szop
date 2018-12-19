@@ -31,4 +31,12 @@ export class UserService extends RestService {
       method: Method.POST
     });
   }
+
+  getAll(): Observable<any> {
+    return this.request({
+      url: 'user/all',
+      method: Method.GET
+    });
+  }
+
 }

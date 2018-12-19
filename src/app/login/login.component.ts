@@ -36,9 +36,13 @@ export class LoginComponent implements OnInit {
       password: this.form.get('password').value
     }).subscribe((dataResult: User) => {
         if (dataResult) {
-          this.roleService.setRole(dataResult.role)
+          this.roleService.setRole(dataResult.role);
           this.storageService.add('currentUser', dataResult);
-          this.router.navigate(['../shop']);
+          if (!this.roleService.isAdmin) {
+            this.router.navigate(['../shop']);
+          } else {
+            this.router.navigate(['../admin']);
+          }
         }
       },
       (error) => {

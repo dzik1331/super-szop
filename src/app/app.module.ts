@@ -26,6 +26,7 @@ import {RoleService} from './services/role.service';
 import {InterceptorService} from './services/interceptor';
 import {NgxUploaderModule} from 'ngx-uploader';
 import { BasketTotalPriceComponent } from './shop/basket/basket-total-price/basket-total-price.component';
+import {AdminModule} from './admin/admin.module';
 
 @NgModule({
   declarations: [

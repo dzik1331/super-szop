@@ -39,4 +39,11 @@ export class UserService extends RestService {
     });
   }
 
+  deleteUser(id): Observable<any> {
+    return this.request({
+      url: `user/delete/${id}`,
+      method: Method.DELETE
+    });
+  }
+
 }

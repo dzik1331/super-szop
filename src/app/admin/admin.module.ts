@@ -5,6 +5,7 @@ import {AdminRouting} from './admin.routing';
 import {MainMenuTileComponent} from './admin-main-page/main-menu-tile/main-menu-tile.component';
 import {UserService} from '../services/user.service';
 import {UsersListComponent} from './admin-main-page/main-menu-tile/users-list/users-list.component';
+import {ModalService} from '../modals/modal.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import {UsersListComponent} from './admin-main-page/main-menu-tile/users-list/us
     CommonModule,
     AdminRouting
   ],
-  providers: [UserService]
+  providers: [UserService, ModalService]
 })
 export class AdminModule {
 }

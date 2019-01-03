@@ -26,7 +26,7 @@ import {RoleService} from './services/role.service';
 import {InterceptorService} from './services/interceptor';
 import {NgxUploaderModule} from 'ngx-uploader';
 import { BasketTotalPriceComponent } from './shop/basket/basket-total-price/basket-total-price.component';
-import {AdminModule} from './admin/admin.module';
+import { ConfirmModalComponent } from './modals/confirm-modal/confirm-modal.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,8 @@ import {AdminModule} from './admin/admin.module';
     RegistrationComponent,
     MessageModalComponent,
     ValidationInfoDirective,
-    BasketTotalPriceComponent
+    BasketTotalPriceComponent,
+    ConfirmModalComponent
   ],
   imports: [
     AppRouting,
@@ -67,7 +68,7 @@ import {AdminModule} from './admin/admin.module';
       multi: true
     }
   ],
-  entryComponents: [MessageModalComponent],
+  entryComponents: [MessageModalComponent, ConfirmModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

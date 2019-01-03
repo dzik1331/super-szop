@@ -1,0 +1,12 @@
+<div class="message-container modal-content">
+  <div class="title-content bg-info">
+    <button class="close" (click)="close()">x</button>
+  </div>
+  <div class="message-content modal-body">
+    <div class="message">{{text}}</div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-sm btn-info" (click)="sendMessage(true)">Tak</button>
+    <button class="btn btn-sm btn-info" (click)="sendMessage(false)">Nie</button>
+  </div>
+</div>

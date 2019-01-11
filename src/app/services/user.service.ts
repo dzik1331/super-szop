@@ -32,6 +32,15 @@ export class UserService extends RestService {
     });
   }
 
+  editUser(data, id): Observable<any> {
+    data['id'] = id;
+    return this.request({
+      url: 'user/edit',
+      data: data,
+      method: Method.PUT
+    });
+  }
+
   getAll(): Observable<any> {
     return this.request({
       url: 'user/all',
@@ -43,6 +52,12 @@ export class UserService extends RestService {
     return this.request({
       url: `user/delete/${id}`,
       method: Method.DELETE
+    });
+  }
+
+  getUser(id): Observable<any> {
+    return this.request({
+      url: `user/get-user/${id}`,
     });
   }
 

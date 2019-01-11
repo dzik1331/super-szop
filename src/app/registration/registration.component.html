@@ -1,5 +1,4 @@
 <div class="container">
-  {{form?.errors | json}}
   <form class="form" [formGroup]="form" *ngIf="loaded">
     <label class="page-title">Rejestracja użytkownika</label>
     <div class="form-group">
@@ -17,13 +16,13 @@
       <input appValidationInfo [errors]="form.controls['lastName'].errors" [input]="form.controls['lastName']"
              class="form-control" formControlName="lastName">
     </div>
-    <div class="form-group">
+    <div class="form-group" *ngIf="!(!!id)">
       <label>Hasło</label>
       <input appValidationInfo [errors]="form.errors ? form.errors : form.controls['password'].errors"
              [input]="form.controls['password']"
              class="form-control" formControlName="password">
     </div>
-    <div class="form-group">
+    <div class="form-group" *ngIf="!(!!id)">
       <label>Powtórz hasło</label>
       <input appValidationInfo [errors]="form.errors ? form.errors : form.controls['confirmPassword'].errors"
              class="form-control" formControlName="confirmPassword">
@@ -34,7 +33,7 @@
                  bindLabel="name" bindValue="id" [clearable]="false"></ng-select>
     </div>
     <div class="form-group text-right">
-      <button [disabled]="!form.valid" class="btn btn-success" (click)="addUser()">Dodaj</button>
+      <button [disabled]="!form.valid" class="btn btn-success" (click)="addUser()">{{!!!id ? 'Dodaj' : 'Edytuj'}}</button>
     </div>
   </form>
 </div>

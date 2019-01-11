@@ -5,7 +5,7 @@
     <th>Nazwisko</th>
     <th>Login</th>
     <th>Rola</th>
-    <th>Akcje <i class="fa fa-plus-circle text-success"></i></th>
+    <th>Akcje <i class="fa fa-plus-circle text-success" [routerLink]="['..','add-user']"></i></th>
   </tr>
   </thead>
   <tbody>
@@ -15,7 +15,8 @@
     <td>{{user.login}}</td>
     <td>{{user.roleName}}</td>
     <td>
-      <button class="btn btn-sm btn-info mr-2"><i class="fa fa-pencil"></i></button>
+      <button class="btn btn-sm btn-info mr-2" [routerLink]="['..','edit-user',user.id]"><i class="fa fa-pencil"></i>
+      </button>
       <button class="btn btn-sm btn-danger" (click)="deleteUser(user.id)"><i class="fa fa-trash"></i></button>
     </td>
   </tr>

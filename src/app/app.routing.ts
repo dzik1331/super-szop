@@ -56,6 +56,6 @@ export const routes: Routes = [
 ];
 
 export const AppRouting: ModuleWithProviders = RouterModule.forRoot(routes, {
-  useHash: true,
+  useHash: false,
   enableTracing: false
 });

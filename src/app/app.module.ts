@@ -17,16 +17,15 @@ import {NgSelectModule} from '@ng-select/ng-select';
 import {UserInfoComponent} from './shop/user-info/user-info.component';
 import {LoggedInGuardService} from './services/logged-in-guard.service';
 import {BasketComponent} from './shop/basket/basket.component';
-import {RegistrationComponent} from './registration/registration.component';
 import {ModalService} from './modals/modal.service';
 import {ModalModule} from 'ngx-bootstrap';
 import {MessageModalComponent} from './modals/message-modal/message-modal.component';
-import {ValidationInfoDirective} from './directives/validation-info.directive';
 import {RoleService} from './services/role.service';
 import {InterceptorService} from './services/interceptor';
 import {NgxUploaderModule} from 'ngx-uploader';
 import { BasketTotalPriceComponent } from './shop/basket/basket-total-price/basket-total-price.component';
 import { ConfirmModalComponent } from './modals/confirm-modal/confirm-modal.component';
+import {UserModule} from './sharedModules/user/user.module';
 
 @NgModule({
   declarations: [
@@ -39,9 +38,7 @@ import { ConfirmModalComponent } from './modals/confirm-modal/confirm-modal.comp
     AddProductComponent,
     UserInfoComponent,
     BasketComponent,
-    RegistrationComponent,
     MessageModalComponent,
-    ValidationInfoDirective,
     BasketTotalPriceComponent,
     ConfirmModalComponent
   ],
@@ -53,7 +50,8 @@ import { ConfirmModalComponent } from './modals/confirm-modal/confirm-modal.comp
     HttpClientModule,
     NgSelectModule,
     ModalModule.forRoot(),
-    NgxUploaderModule
+    NgxUploaderModule,
+    UserModule
   ],
   providers: [
     UserService,

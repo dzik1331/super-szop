@@ -6,6 +6,7 @@ import {MainMenuTileComponent} from './admin-main-page/main-menu-tile/main-menu-
 import {UserService} from '../services/user.service';
 import {UsersListComponent} from './admin-main-page/main-menu-tile/users-list/users-list.component';
 import {ModalService} from '../modals/modal.service';
+import {UserModule} from '../sharedModules/user/user.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {ModalService} from '../modals/modal.service';
     UsersListComponent],
   imports: [
     CommonModule,
-    AdminRouting
+    AdminRouting,
+    UserModule
   ],
   providers: [UserService, ModalService]
 })
